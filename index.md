@@ -10,13 +10,13 @@ layout: home
 Hi, I am Aaditya Dhruv, a student at the University of Illinois at Urbana-Champaign, studying Computer Science.
 <br>
 <br>
-My main interests lie in Systems Programming and Networking Engineering. I am also interested in Linux, open-source software, and self-hosting. In fact, this website is open-source and is hosted on my Linux homelab! 
+My main interests lie in Systems Programming and Networking Engineering. I am also interested in Linux, open-source software, and self-hosting. In fact, this website is [open-source](https://github.com/aadityadhruv/website) and is hosted on my Linux homelab! 
 <br>
 <br>
-I enjoy tinkering around in my homelab, learning new technologies and hosting various services instead of relying on 3rd-party software. 
+I enjoy tinkering around in my homelab, learning new technologies and hosting various [services](https://dashboard.aadityadhruv.com) instead of relying on 3rd-party software. 
 <br>
 <br>
-A lot of the code that drives my homelab is open-source, and can be found on my GitHub!
+A lot of the code that drives my homelab is open-source, and can be found on my [GitHub](https://github.com/aadityadhruv)!
 <br>
 <br>
 ### Posts
