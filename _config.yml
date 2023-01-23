@@ -40,13 +40,14 @@ minima:
   skin: dark
   social_links:
     - { platform: github,  user_url: "https://github.com/aadityadhruv" }
-    - { platform: matrix,  user_url: "@aaditya:aadityadhruv.com" }
+    - { platform: matrix,  user_url: "https://matrix.to/#/@aaditya:aadityadhruv.com" }
     - { platform: keybase,  user_url: "https://keybase.io/aadityadhruv" }
     - { platform: linkedin,  user_url: "https://www.linkedin.com/in/aadityadhruv/" }
 
 # Build settings
 plugins:
   - jekyll-feed
+  - jemoji
 
 # Exclude from processing.
 # The following items will not be processed, by default.
