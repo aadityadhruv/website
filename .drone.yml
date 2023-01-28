@@ -19,9 +19,10 @@ steps:
   image: appleboy/drone-scp
   settings:
     host: 192.168.1.51
-    username: root
+    username:
+      from_secret: ssh_username
     password:
-      from_secret: rsync_key
+      from_secret: ssh_password
     port: 22
     target: ~/build
     rm: true
