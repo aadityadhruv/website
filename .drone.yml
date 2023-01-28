@@ -17,8 +17,7 @@ steps:
 - name: deploy
   image: drillster/drone-rsync
   settings:
-    hosts: [ "192.168.1.51" ]
-    user: aaditya
+    hosts: [ "localhost" ]
     source: _site/*
     target: ~/build
     delete: true
