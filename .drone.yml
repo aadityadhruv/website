@@ -17,7 +17,7 @@ steps:
 - name: deploy
   image: drillster/drone-rsync
   settings:
-    hosts: [ "galactic" ]
+    hosts: [ "192.168.1.51" ]
     user: aaditya
     source: _site/*
     target: ~/build
