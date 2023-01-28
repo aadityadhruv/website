@@ -5,7 +5,7 @@ name: default
 
 steps:
 - name: build 
-  image: jekyll/builder
+  image: ruby
   commands:
   - gem install bundler
   - bundle install
