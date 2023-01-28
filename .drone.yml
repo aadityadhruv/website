@@ -24,6 +24,7 @@ steps:
       from_secret: rsync_key
     port: 22
     target: ~/build
+    rm: true
     source: _site/*
 trigger:
   event:
