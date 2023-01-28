@@ -10,23 +10,21 @@ steps:
   - gem install bundler
   - bundle install
   - bundle exec jekyll build
+  - whoami
   environment:
     JEKYLL_ROOTLESS: 1
     JEKYLL_UID: 1000
     JEKYLL_GID: 1000
 - name: deploy
-  image: drillster/drone-rsync
+  image: appleboy/drone-scp
   settings:
-    hosts: [ "localhost" ]
-    source: _site/*
+    host: 192.168.1.51
+    username: root
+    password:
+      from_secret: rsync_key
+    port: 22
     target: ~/build
-    delete: true
-    recursive: true
-    key:
-      from_secret: rsync_key 
-    when:
-      event: [ push ] ## Would run only on a push to master
-      branch: [ master ] ## Only the master branch can be deployed to production
+    source: _site/*
 trigger:
   event:
   - push
