@@ -14,6 +14,19 @@ steps:
     JEKYLL_ROOTLESS: 1
     JEKYLL_UID: 1000
     JEKYLL_GID: 1000
+- name: deploy
+  image: drillster/drone-rsync
+  settings:
+    hosts: [ "galactic" ]
+    user: aaditya
+    source: _site/*
+    target: ~/build
+    delete: true
+    recursive: true
+    secrets : [ rsync_key ]
+    when:
+      event: [ push ] ## Would run only on a push to master
+      branch: [ master ] ## Only the master branch can be deployed to production
 trigger:
   event:
   - push
