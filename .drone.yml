@@ -7,6 +7,8 @@ steps:
 - name: build 
   image: jekyll/builder
   commands:
+  - export GEM_HOME=$HOME/gems
+  - export PATH=$HOME/gems/bin:$PATH
   - bundle install
   - echo $JEKYLL_ROOTLESS
   - bundle exec jekyll build
