@@ -9,4 +9,7 @@ steps:
   commands:
   - bundle install
   - bundle exec jekyll build
+  environment:
+    - JEKYLL_ROOTLESS=1
+
 
