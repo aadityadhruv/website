@@ -14,3 +14,10 @@ steps:
     JEKYLL_ROOTLESS: 1
     JEKYLL_UID: 1000
     JEKYLL_GID: 1000
+trigger:
+  event:
+  - push
+  - pull_request
+  - tag
+  - rollback
+
