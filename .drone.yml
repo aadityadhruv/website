@@ -9,5 +9,8 @@ steps:
   commands:
   - bundle install
   - bundle exec jekyll build
+  - echo $JEKYLL_ROOTLESS
   environment:
     JEKYLL_ROOTLESS: 1
+    JEKYLL_UID: 1000
+    JEKYLL_GID: 1000
