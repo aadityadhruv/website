@@ -5,7 +5,7 @@ name: default
 
 steps:
 - name: build 
-  image: jekyll/jekyll
+  image: jekyll/builder
   commands:
   - bundle install
   - echo $JEKYLL_ROOTLESS
