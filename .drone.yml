@@ -24,7 +24,7 @@ steps:
     password:
       from_secret: ssh_password
     port: 22
-    target: ~/containers/blog/data/victory_road/_site
+    target: ~/containers/caddy/site
     rm: true
     source: _site/*
 trigger:
