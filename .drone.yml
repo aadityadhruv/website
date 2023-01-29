@@ -10,7 +10,6 @@ steps:
   - gem install bundler
   - bundle install
   - bundle exec jekyll build
-  - whoami
   environment:
     JEKYLL_ROOTLESS: 1
     JEKYLL_UID: 1000
@@ -24,7 +23,7 @@ steps:
     password:
       from_secret: ssh_password
     port: 22
-    target: ~/containers/caddy/site
+    target: ~/containers/caddy/site/blog/
     rm: true
     source: _site
 trigger:
