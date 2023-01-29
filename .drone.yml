@@ -31,6 +31,5 @@ trigger:
   event:
   - push
   - pull_request
-  - tag
   - rollback
 
