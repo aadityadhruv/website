@@ -29,6 +29,5 @@ steps:
 trigger:
   event:
   - push
-  - pull_request
-  - rollback
+  - custom
 
