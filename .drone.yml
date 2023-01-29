@@ -26,7 +26,7 @@ steps:
     port: 22
     target: ~/containers/caddy/site
     rm: true
-    source: _site/*
+    source: _site
 trigger:
   event:
   - push
