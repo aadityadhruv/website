@@ -1,0 +1,33 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: build 
+  image: ruby
+  commands:
+  - gem install bundler
+  - bundle install
+  - bundle exec jekyll build
+  environment:
+    JEKYLL_ROOTLESS: 1
+    JEKYLL_UID: 1000
+    JEKYLL_GID: 1000
+- name: deploy
+  image: appleboy/drone-scp
+  settings:
+    host: 192.168.1.51
+    username:
+      from_secret: ssh_username
+    password:
+      from_secret: ssh_password
+    port: 22
+    target: ~/containers/caddy/site/blog/
+    rm: true
+    source: _site
+trigger:
+  event:
+  - push
+  - custom
+
