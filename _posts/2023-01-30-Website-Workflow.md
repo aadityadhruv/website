@@ -23,12 +23,12 @@ To make the website "public", I leveraged my existing VPS on DigitalOcean. I alr
 While this worked, and all changes I made were instantly reflected, the solution was not satisfactory. I could break something and the whole website would come down. And I could only access the site through sshing into my homeserver and editing files directly from there. To address these shortcomings, Ileveraged the other services I was running on my homeserver - Gitea and Drone CI. 
 
 
-#### Current Setup
+#### Gitea with Drone CI
 
-Gitea and Drone CI are a part of my current setup. I have completely eliminated the need for the Docker container - since the website generates static files, there is no need for a Jekyll container to run and hog resources. 
+Gitea and Drone CI were pretty useful together. There is no need for another individual container. Since the website generates static files, there is no need for a Jekyll container to run and eat up resources. 
 
 
-Instead, I put all the required files for Jekyll to build the website on a repository on my Gitea instance. This means I can easily make changes to the website with a simple push. However, the repo itself isn't enough for generating and serving files. 
+Instead, I put all the required files for Jekyll to build the website on a repository on my Gitea instance. This means I can easily make changes to the website with a simple push. However, the repo itself wasn't enough for generating and serving files. 
 
 
 This is where Drone CI comes in. Drone is a simple CI service that works nicely with Gitea. I setup Drone to build my repo with the Jekyll build commands using a ruby image as the base. This generated and built the website, but how would I get the actual built files from the container in which this build was executed? This is where the Drone plugin for `scp` comes in. With this plugin, I can specify which files to copy from the docker container to the host machine (which is my homeserver). Using this plugin, I copied the static files to my homeserver and used Caddy to serve them. The rest of it is the same as the first part. 
@@ -36,4 +36,6 @@ This is where Drone CI comes in. Drone is a simple CI service that works nicely 
 I also set the Gitea repo to mirror the GitHub repo containing the same code, so that other people could view it. Anyone can view the Gitea code too, but GitHub tends to be more accessible. 
 
 
-This is pretty much a general summary of the process I went through in implementing my website development workflow. It was never smooth, and I faced a lot of issues on the way, but it works now!
+#### Gitea Actions
+
+With Gitea Actions being introduced in v19.0, Drone CI can be ditched for Gitea's own runners and CI build system. Gitea actions is great since it uses the same configuration syntax as Github, which a lot of people are familiar with. Currently, Gitea Actions takes care of deploying this website by building and `scp`-ing the files on a push to the main branch.

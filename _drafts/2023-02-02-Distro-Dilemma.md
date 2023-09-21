@@ -1,3 +1,7 @@
+---
+layout: post
+title:  "Distro Dilemma"
+---
 Choosing a Linux Distro is hard, and sticking to one is even harder. I hopped between several distros before landing on Fedora Linux. Many of the distros I tried made me feel that it would be the final distro I would stick to, but in the end my distro hopping ended with Fedora. 
 
 
