@@ -10,7 +10,13 @@ jobs:
         run: apt update -y && apt install -y ruby-full
       - name: Compile website with Jekyll
         run: gem install bundler && bundle install && bundle exec jekyll build
-      - uses: actions/upload-artifact@v3
+      - name: Copy build to host
+        uses: appleboy/scp-action@v0.1.4
         with:
-          name: jekyll
-          path: _site
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          source: "_site"
+          target: ${{ secrets.PATH }}
